@@ -1,0 +1,24 @@
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: Framework
+metadata:
+  name: dev-policy
+spec:
+  forProvider:
+    shipaFramework: dev-policy
+    resources:
+      general:
+        setup:
+          provisioner: kubernetes
+        router: traefik
+        appQuota:
+          limit: "4"
+        plan:
+          name: "shipa-plan"
+        security:
+          disableScan: true
+        networkPolicy:
+          ingress:
+            policy_mode: allow-all
+          egress:
+            policy_mode: allow-all
+          disableAppPolicies: false

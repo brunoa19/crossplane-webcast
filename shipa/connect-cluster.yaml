@@ -1,0 +1,16 @@
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: Cluster
+metadata:
+  name: application-cluster
+spec:
+  forProvider:
+    name: application-cluster
+    endpoint:
+      addresses: ["https://xx.xx.xx.xx"]
+      caCert: |
+        -----BEGIN CERTIFICATE-----
+        -----END CERTIFICATE-----
+      token: shipa-service-account-token-here
+    resources:
+      frameworks:
+        name: ["dev-policy"]

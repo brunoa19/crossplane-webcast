@@ -1,0 +1,20 @@
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: App
+metadata:
+  name: cp-bulletin
+spec:
+  forProvider:
+    name: cp-bulletin
+    teamowner: shipa-team
+    framework: dev-policy
+
+---
+
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: AppDeploy
+metadata:
+  name: cp-appdeploy
+spec:
+  forProvider:
+    app: cp-bulletin
+    image: "docker.io/shipasoftware/bulletinboard:1.0"
